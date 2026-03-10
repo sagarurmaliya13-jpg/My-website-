@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOC Website - Professional Web Development Services</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ALL YOUR EXISTING CSS REMAINS EXACTLY THE SAME */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header/Navbar */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        .logo span {
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 80px 5% 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #ffd700;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #ffed4a;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-card i {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        .service-features li {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .service-features li i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+            color: #28a745;
+            background: none;
+            -webkit-text-fill-color: #28a745;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+        .feature-item i {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+        .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1.2rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: #667eea;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: bold;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        .footer-section p {
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: #ffd700;
+            color: #333;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #cbd5e0;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">NOC <span>Website</span></a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>NOC Website</h1>
+            <h2>Your Vision, Our Code</h2>
+            <p>We create professional, modern, and responsive websites for everyone - Doctors, Hotels, E-commerce, Salons, and more. Transform your business with a stunning online presence.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">We offer complete web solutions tailored to your specific business needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-stethoscope"></i>
+                <h3>Doctor Website</h3>
+                <p>Professional medical websites with appointment booking, patient records, online consultation, and prescription management.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Online Appointment System</li>
+                    <li><i class="fas fa-check"></i> Patient Management</li>
+                    <li><i class="fas fa-check"></i> Video Consultation</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hotel"></i>
+                <h3>Hotel Website</h3>
+                <p>Stunning hotel websites with room booking engine, photo galleries, review system, and location maps.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Real-time Room Booking</li>
+                    <li><i class="fas fa-check"></i> Gallery & Virtual Tour</li>
+                    <li><i class="fas fa-check"></i> Review Management</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-Commerce</h3>
+                <p>Full-featured online stores with product management, shopping cart, payment gateway, and order tracking.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Product Catalog</li>
+                    <li><i class="fas fa-check"></i> Secure Payments</li>
+                    <li><i class="fas fa-check"></i> Order Management</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Salon Website</h3>
+                <p>Beautiful salon websites with appointment booking, service catalog, pricing, and staff profiles.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Online Booking</li>
+                    <li><i class="fas fa-check"></i> Service Menu</li>
+                    <li><i class="fas fa-check"></i> Stylist Portfolio</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>About NOC Website</h3>
+                <p>NOC Website is a professional web development company dedicated to helping businesses establish a powerful online presence. We believe that every business, regardless of its size, deserves a website that not only looks great but also drives results.</p>
+                <p>With years of experience and a team of passionate developers, we've helped over 100+ businesses across various industries achieve their digital goals. Our approach combines creativity, technical expertise, and a deep understanding of what makes a website truly effective.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>100+</h4>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>50+</h4>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>24/7</h4>
+                        <p>Client Support</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Fully Responsive</h4>
+                <p>Websites that look great on all devices - desktops, tablets, and mobiles</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rocket"></i>
+                <h4>Fast Loading</h4>
+                <p>Optimized for speed to provide the best user experience</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Secure & Safe</h4>
+                <p>Top-notch security to protect your data and your customers' information</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <h4>SEO Optimized</h4>
+                <p>Built with best practices to help you rank higher in search engines</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <h4>24/7 Support</h4>
+                <p>We're always here to help you with any questions or issues</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rupee-sign"></i>
+                <h4>Affordable</h4>
+                <p>Quality websites at prices that won't break your budget</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>Ready to take your business to the next level? Contact us today for a free consultation. We'll discuss your needs and create a custom solution that's perfect for you.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:nocwebsite1@gmail.com">nocwebsite1@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919711066058">+91 9711066058</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New Delhi, India</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                </div>
+                <!-- FIXED: Removed action attribute - now using JavaScript only -->
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <i class="fas fa-envelope"></i> Messages will be sent directly to nocwebsite1@gmail.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NOC Website</h4>
+                <p>Your trusted partner for professional web development. We turn your ideas into reality with clean code and stunning design.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Doctor Websites</a></li>
+                    <li><a href="#">Hotel Websites</a></li>
+                    <li><a href="#">E-Commerce Stores</a></li>
+                    <li><a href="#">Salon Websites</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 NOC Website. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919711066058" class="whatsapp-btn" target="_blank" title="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Mobile Menu JavaScript - FIXED AND UPDATED -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, #5a67d8 0%, #6b46a1 100%)';
+                header.style.padding = '0.8rem 5%';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.padding = '1rem 5%';
+            }
+        });
+
+        // ===== FIXED CONTACT FORM =====
+        // This replaces the old Formspree code with a working email solution
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const name = form.querySelector('input[name="name"]').value;
+            const email = form.querySelector('input[name="email"]').value;
+            const phone = form.querySelector('input[name="phone"]').value;
+            const message = form.querySelector('textarea[name="message"]').value;
+            const submitBtn = form.querySelector('.submit-btn');
+            const successMsg = document.getElementById('successMessage');
+            
+            // Validate form
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Create email body
+            const emailBody = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0A%0AMessage:%0A${message}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:nocwebsite1@gmail.com?subject=New Contact Form Submission from ${name}&body=${emailBody}`;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening Email...';
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            successMsg.style.display = 'block';
+            successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Your email client has opened. Please click send to complete.';
+            
+            // Reset form
+            form.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message';
+            }, 3000);
+            
+            // Hide success message after 8 seconds
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 8000);
+        });
+
+        // Alternative: If you want to use WhatsApp instead of email for contact form
+        // Uncomment the code below and comment the above code to use WhatsApp
+        
+        /*
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const name = form.querySelector('input[name="name"]').value;
+            const email = form.querySelector('input[name="email"]').value;
+            const phone = form.querySelector('input[name="phone"]').value;
+            const message = form.querySelector('textarea[name="message"]').value;
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            const whatsappMessage = `*New Contact Form Submission*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Message:* ${message}`;
+            const whatsappLink = `https://wa.me/919711066058?text=${whatsappMessage}`;
+            
+            window.open(whatsappLink, '_blank');
+            
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+        */
+    </script>
+</body>
+</html>
